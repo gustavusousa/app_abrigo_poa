@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Add New Donor</h2>
+    <form method="POST" action="/add_doador"> 
+        <label for="nome">Name:</label>
+        <input type="text" id="nome" name="nome" required><br><br>
+
+        <label for="contato">Contact:</label>
+        <input type="text" id="contato" name="contato"><br><br>
+
+        <button type="submit">Add Donor</button>
+    </form>
+{% endblock %}

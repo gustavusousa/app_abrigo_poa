@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Animal Shelter App</title>
+</head>
+<body>
+    <h1>Animal Shelter Database</h1>
+
+    <form method="POST" action="/select_table"> 
+        <label for="table_select">Select Table:</label>
+        <select id="table_select" name="table_name">
+            <option value="animal">Animal</option>
+            <option value="alimento">Alimento</option>
+            <option value="doador">Doador</option>
+        </select>
+        <button type="submit">Go</button>
+    </form>
+
+    {% block content %}
+    {% endblock %} 
+
+</body>
+</html>

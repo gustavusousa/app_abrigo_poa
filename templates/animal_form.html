@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Add New Animal</h2>
+    <form method="POST" action="/add_animal"> 
+        <label for="nome">Name:</label>
+        <input type="text" id="nome" name="nome" required><br><br>
+
+        <label for="especie">Species:</label>
+        <input type="text" id="especie" name="especie" required><br><br>
+
+        <label for="raca">Breed:</label>
+        <input type="text" id="raca" name="raca"><br><br>
+
+        <label for="idade">Age:</label>
+        <input type="number" id="idade" name="idade"><br><br>
+
+        <label for="necessidades_alimentares">Dietary Needs:</label>
+        <textarea id="necessidades_alimentares" name="necessidades_alimentares"></textarea><br><br>
+
+        <button type="submit">Add Animal</button>
+    </form>
+{% endblock %}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cadastro</title>
+</head>
+<body>
+    <h1>Cadastro de Novos Dados</h1>
+
+    <form method="POST" action="/">
+        <label for="tabela">Selecione a tabela:</label>
+        <select id="tabela" name="tabela"> 
+            <option value="">-- Selecione --</option>
+            <option value="Animal">Animal</option>
+            <option value="Alimento">Alimento</option>
+            <option value="Doador">Doador</option>
+            <option value="Doacao">Doação</option>
+            <option value="Consumo">Consumo</option>
+        </select>
+        <button type="submit">Mostrar Campos</button> 
+    </form>
+
+    {% if campos %}
+        <form method="POST" action="/">
+            <input type="hidden" name="tabela" value="{{ tabela }}"> 
+            {% for campo in campos %}
+                <label for="{{ campo }}">{{ campo }}:</label>
+                <input type="text" id="{{ campo }}" name="{{ campo }}" required><br>
+            {% endfor %}
+            <button type="submit" name="submit_data">Add Data</button>  </form>
+    {% endif %}
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de Itens</title>
+</head>
+<body>
+    <h1>Lista de {{ tabela }}</h1>
+
+    <form method="GET" action="/lista"> 
+        <label for="tabela">Selecione a tabela:</label>
+        <select id="tabela" name="tabela" onchange="this.form.submit()">
+            <option value="">-- Selecione --</option>
+            <option value="Animal" {% if tabela == 'Animal' %}selected{% endif %}>Animal</option>
+            <option value="Alimento" {% if tabela == 'Alimento' %}selected{% endif %}>Alimento</option>
+            <option value="Doador" {% if tabela == 'Doador' %}selected{% endif %}>Doador</option>
+            <option value="Doacao" {% if tabela == 'Doacao' %}selected{% endif %}>Doação</option>
+            <option value="Consumo" {% if tabela == 'Consumo' %}selected{% endif %}>Consumo</option>
+        </select>
+    </form>
+
+    {% if dados %}
+        <table>
+            <thead>
+                <tr>
+                    {% for coluna in dados[0].keys() %}
+                        <th>{{ coluna }}</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for linha in dados %}
+                    <tr>
+                        {% for valor in linha.values() %}
+                            <td>{{ valor }}</td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>Nenhum dado encontrado para a tabela selecionada.</p>
+    {% endif %}
+</body>
+</html>
